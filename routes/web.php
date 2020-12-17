@@ -59,4 +59,6 @@ Route::namespace('Admin')->prefix('admin')->middleware('admin')->group(function 
 	Route::get('confirmation/{id}', 'ConfirmationController@confirmationEmail')->name('admin.email.confirmation');
 	Route::get('balance', 'BalanceController@showBalance')->name('balance.admin');
 	Route::post('balance', 'BalanceController@valuesBalance')->name('balance.values');
+	Route::get('banks', 'BalanceController@banksColombians')->name('banks.admin');
+	Route::post('banks', 'BalanceController@addBanks')->name('banks.edit');
 });

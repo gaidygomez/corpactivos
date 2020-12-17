@@ -38,6 +38,7 @@
                         <li><a href=" {{ route('admin.rates') }} ">Tasas de Cambios</a></li>
                         <li><a href="{{ route('admin.history') }}">Historial</a></li>
                         <li><a href="{{ route('balance.admin') }}">Balance</a></li>
+                        <li><a href="{{ route('banks.admin') }}">Bancos de Colombia</a></li>
                     </ul>
                 </li>
             </ul>

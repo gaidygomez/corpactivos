@@ -22,6 +22,7 @@ class CreateColombianBanksTable extends Migration
             $table->enum('type', ['a', 'c']);// Tipo de Cuenta
             $table->double('balance', 15, 2)->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
