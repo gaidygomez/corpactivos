@@ -2,10 +2,12 @@
 
 namespace App\Model;
 
-use Carbon\Carbon;
 use Exception;
-use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use App\Mail\TokenMail;
 use Twilio\Rest\Client;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Database\Eloquent\Model;
 
 class Token extends Model
 {
@@ -85,15 +87,17 @@ class Token extends Model
 
         try {
             
-            $twilio = new Client(config('services.twilio.account_sid'), config('services.twilio.auth_token'));
+            /* $twilio = new Client(config('services.twilio.account_sid'), config('services.twilio.auth_token'));
             
             $twilio->messages->create(
                 $this->user->getPhoneNumber(),
                 [
                     'from' => config('services.twilio.phone'),
                     'body' => "Your verification code is {$this->code}"
-                ]);
-
+                ]); */
+            
+            Mail::to($this->user->email)
+                ->send(new TokenMail($this->code));
                 
             } catch (Exception $ex) {
                 return false; //enable to send SMS
