@@ -10,4 +10,8 @@ class BankEntity extends Model
     use SoftDeletes;
 
     protected $table = 'bank_entities';
+
+    protected $fillable = [
+        'name_bank','description','acronym','balance'
+    ];
 }

@@ -59,4 +59,45 @@ class BalanceController extends Controller
         return back()->with('success', 'El Banco ha sido añadido');
 
     }
+
+    public function deleteBank($id)
+    {
+        ColombianBank::find($id)->delete();
+
+        return back()->with('success', 'El Banco ha sido borrado');
+    }
+
+    public function banksVenezuela()
+    {
+        $banks = BankEntity::paginate();
+
+        return view('admin.banksVenezuela', compact('banks'));
+    }
+
+    public function addBanksVzla(Request $request)
+    {
+        $request->validate([
+            'bank' => 'required|string',
+            'acronym' => 'required|string|unique:App\Model\BankEntity,acronym',
+            'balance' => 'required|numeric',
+            'description' => 'nullable|string',
+        ]);
+        
+        BankEntity::create([
+            'name_bank' => $request['bank'],
+            'description' => $request['description'],
+            'balance' => $request['balance'],
+            'type' => $request['type'],
+            'acronym' => $request['acronym'],
+        ]);
+
+        return back()->with('success', 'El Banco ha sido añadido');
+    }
+
+    public function deleteBanksVzla($id)
+    {
+        BankEntity::find($id)->delete();
+
+        return back()->with('success', 'El Banco ha sido borrado');
+    }
 }

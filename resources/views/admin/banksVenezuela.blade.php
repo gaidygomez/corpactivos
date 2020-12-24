@@ -45,7 +45,7 @@
                                   </div>
                                 @endif
                             </div>
-                            <form action="{{ route('banks.edit') }}" method="POST">
+                            <form action="{{ route('banks.vzla.post') }}" method="POST">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
@@ -59,15 +59,6 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
-                                            <label for="ban">Número de Cuenta del Banco</label>
-                                            <input type="text" id="ban" class="form-control" name="ban" value="{{ old('ban') }}" placeholder="Nombre del Banco">
-                                            @error('ban')
-                                                <p class="p-2 text-danger"> {{ $message }} </p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-group">
                                             <label for="acronym">Acrónimo del Banco</label>
                                             <input type="text" id="acronym" class="form-control" name="acronym" value="{{ old('acronym') }}" placeholder="Acrónimo del Banco">
                                             @error('acronym')
@@ -75,7 +66,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12">
+                                    <div class="col-lg-6 col-md-6">
                                         <div class="form-group">
                                             <label for="balance">Balance del Banco</label>
                                             <input type="text" id="balance" class="form-control" name="balance" value="{{ old('balance') }}" placeholder="Balance del Banco">
@@ -83,21 +74,6 @@
                                             <p class="p-2 text-danger"> {{ $message }} </p>
                                             @enderror
                                         </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 py-2">
-                                        <label>Tipo de Cuenta</label>
-                                        <br>
-                                        <label class="fancy-radio">
-                                            <input type="radio" name="type" value="A">
-                                            <span><i></i>Ahorro</span>
-                                        </label>
-                                        <label class="fancy-radio">
-                                            <input type="radio" name="type" value="C">
-                                            <span><i></i>Corriente</span>
-                                        </label>
-                                        @error('type')
-                                            <p class="text-danger"> {{ $message }} </p>
-                                        @enderror
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
@@ -125,7 +101,6 @@
                                             <th>#</th>
                                             <th>Nombre del Banco</th>
                                             <th>Balance</th>
-                                            <th>Tipo</th>
                                             <th>Eliminar</th>
                                         </tr>
                                     </thead>
@@ -133,12 +108,9 @@
                                     @foreach ($banks as $key => $bank)
                                         <tr>
                                             <td> {{ ($key+1) }} </td>
-                                            <td> {{ $bank->name }} </td>
-                                            <td> {{ $bank->type == 'a' ? 'Ahorro' : 'Corriente'}} </td>
+                                            <td> {{ $bank->name_bank }} </td>
                                             <td> {{ number_format($bank->balance, 2, ',', '.') }} </td>
-                                            <td>
-                                                <a href="{{ route('banks.delete', ['id' => $bank->id]) }}" class="btn btn-danger">Eliminar</a>
-                                            </td>
+                                            <td><a href="{{ route('banks.vzla.delete', ['id'=> $bank->id]) }}" class="btn btn-danger">Eliminar</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

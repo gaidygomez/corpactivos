@@ -4,10 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
-use App\Model\Account;
 use App\Model\ColombianBank;
 use App\Model\Deposit;
-use App\Model\User;
 use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
@@ -32,7 +30,7 @@ class PaymentController extends Controller
         return view('user.register-payment', compact('banks', 'accounts', 'payments'));
     }
     
-    public function registerPayment(PaymentRequest $request)
+    public function registerPayment(PaymentRequest $request, ColombianBank $bank)
     {
 
         $type_account = $request->user()->accounts()
@@ -50,6 +48,9 @@ class PaymentController extends Controller
             'voucher' => $request['voucher'],
             'photo_voucher' => $request->file('photo_voucher')->store('pagos'),
         ]);
+
+        $bank->where('acronym', $request['bban'])
+            ->increment('balance', $request['amount']);
 
         $request->user()->deposits()->save($payment);
 
