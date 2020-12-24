@@ -64,8 +64,14 @@
                             <p class="p-2 text-danger"> {{ $message }} </p>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display: flex;">
                         <label for="signin-ci" class="control-label sr-only">Cédula</label>
+                        <select class="form-control show-tick" name="pre-ci" style="width: 25%; margin-right:.25rem;">
+                            <option value="V">V</option>
+                            <option value="P">P</option>
+                            <option value="CC">CC</option>
+                            <option value="CE">CE</option>
+                        </select>
                         <input type="text" class="form-control round" name="ci" id="signin-ci" value="{{ old('ci') }}" placeholder="Cédula">
                         @error('ci')
                             <p class="p-2 text-danger"> {{ $message }} </p>

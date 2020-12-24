@@ -1,9 +1,19 @@
 const amount = document.getElementById('amount');
 const resp = document.getElementById('response');
+let bfs;
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchValue()
+        .then(res => bfs = res.peso_bs)
+        .then(() => console.log(bfs))
+        .catch(error => console.error(error))
+})
 
 amount.addEventListener('blur', () => {
-    let bfs = 65.96;
-    let total = amount.value * bfs;
+    let value = parseFloat(amount.value)
+
+    let total = value/bfs;
+
     total = total.toFixed(2);
 
     resp.innerHTML = `
@@ -15,3 +25,10 @@ amount.addEventListener('blur', () => {
     </div>
     `;
 });
+
+async function fetchValue() {
+    const request = await fetch('http://127.0.0.1:8000/marquee')
+    const response = await request.json()
+
+    return response;
+}

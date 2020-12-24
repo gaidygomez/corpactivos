@@ -61,6 +61,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:25', 'unique:users,username'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'pre-ci' => ['required', 'string']
         ]);
     }
 
@@ -77,7 +78,7 @@ class RegisterController extends Controller
             'sname' => $data['sname'],
             'lname' => $data['lname'],
             'lsname' => $data['lsname'],
-            'ci' => $data['ci'],
+            'ci' => $data['pre-ci'].$data['ci'],
             'phone' => $data['phone'],
             'username' => $data['username'],
             'email' => $data['email'],
