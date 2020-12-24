@@ -88,11 +88,11 @@
                                         <label>Tipo de Cuenta</label>
                                         <br>
                                         <label class="fancy-radio">
-                                            <input type="radio" name="type" value="A">
+                                            <input type="radio" name="type" value="a">
                                             <span><i></i>Ahorro</span>
                                         </label>
                                         <label class="fancy-radio">
-                                            <input type="radio" name="type" value="C">
+                                            <input type="radio" name="type" value="c">
                                             <span><i></i>Corriente</span>
                                         </label>
                                         @error('type')
