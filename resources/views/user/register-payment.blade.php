@@ -129,6 +129,7 @@
                                             <th>Banco de Colombia</th>
                                             <th>Monto Transferido</th>
                                             <th>Fecha</th>
+                                            <th>Estatus</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -140,6 +141,10 @@
                                             <td> {{ $payment->name }} </td>
                                             <td> {{ $payment->amount }} </td>
                                             <td> {{ $payment->created_at }} </td>
+                                            <td> 
+                                                <span class="badge {{ $payment->status == 0 ? 'badge-warning' : 'badge-success' }}"> {{ $payment->status == 0 ? 'Pendiente' : 'Aprobado'  }} 
+                                                </span>  
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
