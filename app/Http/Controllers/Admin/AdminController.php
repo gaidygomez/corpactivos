@@ -31,12 +31,18 @@ class AdminController extends Controller
         return view('admin.rateOfChange');
     }
 
-    public function history()
+    public function confirmation()
     {
-        $deposits = Deposit::paginate(25);
+        $deposits = Deposit::where('deposits.status', 0)
+            ->join('accounts', 'deposits.ban', '=', 'accounts.beneficiary_bank')
+            ->join('bank_entities', 'bank_entities.acronym', '=', 'accounts.ban_beneficiary')
+            ->join('colombian_banks', 'deposits.bank', '=', 'colombian_banks.acronym')
+            ->select('deposits.*', 'accounts.beneficiary', 'accounts.ci', 'accounts.phone', 'bank_entities.name_bank', 'colombian_banks.name')
+            ->paginate(25);
+
         $change = RateOfChange::select('peso_bs')->first();
 
-        return view('admin.history', compact('deposits', 'change'));
+        return view('admin.confirmation', compact('deposits', 'change'));
     }
 
     /**
