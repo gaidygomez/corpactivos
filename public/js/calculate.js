@@ -27,7 +27,7 @@ amount.addEventListener('blur', () => {
 });
 
 async function fetchValue() {
-    const request = await fetch('https://corpactivos.herokuapp.com/marquee')
+    const request = await fetch('marquee')
     const response = await request.json()
 
     return response;

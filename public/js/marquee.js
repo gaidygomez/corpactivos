@@ -16,8 +16,8 @@ function marqueeValue() {
 function dataMarquee(data) {
     
     marquee.innerHTML = `
-    Dólar - Bolívares: ${data.dolar_bs} |
-    Pesos - Bolívar: ${data.peso_bs} |
-    Dólar - Pesos : ${data.dolar_peso}
+    Bs : ${data.dolar_bs} |
+    $ : ${data.peso_bs} |
+    $ : ${data.dolar_peso}
     `;
 }
