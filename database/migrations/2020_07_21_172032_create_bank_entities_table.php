@@ -18,7 +18,7 @@ class CreateBankEntitiesTable extends Migration
             $table->string('name_bank');
             $table->string('description')->nullable();
             $table->string('acronym', 10)->unique();
-            $table->double('balance', 15, 2)->unsigned();
+            $table->double('balance', 15, 2)->default(0)->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

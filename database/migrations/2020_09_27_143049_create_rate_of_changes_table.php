@@ -16,7 +16,7 @@ class CreateRateOfChangesTable extends Migration
         Schema::create('rate_of_changes', function (Blueprint $table) {
             $table->id();
             $table->float('dolar_peso', 10, 2);
-            $table->float('dolar_bs', 10, 5);
+            $table->float('dolar_bs', 20, 5);
             $table->float('peso_bs', 10, 5);
             $table->timestamps();
         });
