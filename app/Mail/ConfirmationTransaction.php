@@ -11,16 +11,17 @@ class ConfirmationTransaction extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $deposit;
+    public $deposit, $amount;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($deposit)
+    public function __construct($deposit, $amount)
     {
         $this->deposit = $deposit;
+        $this->amount = $amount;
     }
 
     /**

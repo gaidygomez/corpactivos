@@ -55,7 +55,7 @@ Route::namespace('Admin')->prefix('admin')->middleware('admin')->group(function 
 	Route::post('logout', 'AdminController@logout')->name('admin.logout');
 	Route::get('rate', 'AdminController@rate')->name('admin.rates');
 	Route::post('rate', 'RateOfChangeController@rate')->name('admin.rates.change');
-	Route::get('history', 'AdminController@history')->name('admin.history');
+	Route::get('confirmation', 'AdminController@confirmation')->name('admin.confirmation');
 	Route::get('confirmation/{id}', 'ConfirmationController@confirmationEmail')->name('admin.email.confirmation');
 	Route::get('balance', 'BalanceController@showBalance')->name('balance.admin');
 	Route::post('balance', 'BalanceController@valuesBalance')->name('balance.values');

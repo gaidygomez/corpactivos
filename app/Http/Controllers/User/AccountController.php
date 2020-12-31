@@ -29,7 +29,7 @@ class AccountController extends Controller
         $account = new Account([
             'beneficiary' => $request['bname'],
             'beneficiary_bank' => $request['bban'],
-            'ci' => $request['ci'],
+            'ci' => $request['pre-ci'].$request['ci'],
             'phone' => $request['phone'],
             'type_account' => $request['taccount'],
             'ban_beneficiary' => $request['bbank'],

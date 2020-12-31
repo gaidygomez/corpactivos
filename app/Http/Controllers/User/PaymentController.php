@@ -37,7 +37,7 @@ class PaymentController extends Controller
             ->select('type_account')
             ->where('beneficiary_bank', '=', $request['bname'])->first();
 
-        $name = Auth::user()->name." ".Auth::user()->lname;
+        $name = Auth::user()->fname." ".Auth::user()->lname;
 
         $payment = New Deposit([
             'name' => $name,

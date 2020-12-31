@@ -36,7 +36,7 @@
                     <ul>
                         <li class="active"><a href="{{ route('admin.dashboard') }}">Inicio</a></li>
                         <li><a href=" {{ route('admin.rates') }} ">Tasas de Cambios</a></li>
-                        <li><a href="{{ route('admin.history') }}">Historial</a></li>
+                        <li><a href="{{ route('admin.confirmation') }}">Transacciones por Confirmar</a></li>
                         <li><a href="{{ route('balance.admin') }}">Balance Bancos de Venezuela</a></li>
                         <li><a href="{{ route('banks.vzla') }}">Bancos de Venezuela</a></li>
                         <li><a href="{{ route('banks.admin') }}">Bancos de Colombia</a></li>
