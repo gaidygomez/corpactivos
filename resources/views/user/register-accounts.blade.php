@@ -60,7 +60,7 @@
                                         </div>                          
                                     </div>
                                     <div class="col-lg-12 col-md-12">
-                                        <label for="bban">Número de Cuenta del Beneficiario</label>
+                                        <label for="bban">Número de Cuenta del Beneficiario (Ingrese los 20 números, sin guiones o puntos) </label>
                                         <div class="form-group">
                                             <input type="text" name="bban" class="form-control" value="" placeholder="Número de Cuenta del Beneficiario">
                                             @error('bban')
@@ -70,15 +70,22 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 mb-3">
                                         <div class="form group">
-                                            <label for="ci">Cédula del Beneficiario</label>
-                                            <input type="text" name="ci" class="form-control" placeholder="Cédula del Beneficiario">
+                                            <label for="ci">Cédula del Beneficiario (Sin puntos, ni comas)</label>
+                                            <div style="display: flex;">
+                                                <select class="form-control show-tick" name="pre-ci" style="width: 12%; margin-right: .25rem;">
+                                                    <option value="V">V</option>
+                                                    <option value="E">E</option>
+                                                    <option value="J">J</option>
+                                                </select>
+                                                <input type="text" name="ci" class="form-control" placeholder="Cédula del Beneficiario">
+                                                </div>
                                             @error('ci')
                                                 <p class="text-danger"> {{ $message }} </p>
                                             @enderror
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 mb-3">
-                                        <label for="phone">Teléfono del Beneficiario</label>
+                                        <label for="phone">Teléfono del Beneficiario (Ingrese con su código de País (+58)) </label>
                                         <input type="text" name="phone" class="form-control" placeholder="Teléfono del Beneficiario">
                                         @error('phone')
                                             <p class="text-danger"> {{ $message }} </p>
