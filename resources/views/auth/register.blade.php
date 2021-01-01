@@ -79,7 +79,7 @@
                     </div>
                     <div class="form-group">
                         <label for="signin-phone" class="control-label sr-only">Teléfono</label>
-                        <input type="text" class="form-control round" name="phone" id="signin-phone" value="{{ old('phone') }}" placeholder="Teléfono">
+                        <input type="text" class="form-control round" name="phone" id="signin-phone" value="{{ old('phone') }}" placeholder="Teléfono" data-toggle="tooltip" data-placement="top" title="Debe agregar el número de teléfono con el código del país (+58)">
                         @error('phone')
                             <p class="p-2 text-danger"> {{ $message }} </p>
                         @enderror
