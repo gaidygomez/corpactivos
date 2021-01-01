@@ -53,7 +53,7 @@
                                             <th>Cuenta Destino</th>
                                             <th>CI Destinatario</th>
                                             <th>Monto a Recibir</th>
-                                            <th>Fecha de la Operación</th>
+                                            <th>Fecha</th>
                                             <th>Aprobar</th>
                                         </tr>
                                     </thead>
@@ -62,7 +62,7 @@
                                             <tr>
                                                 <td> {{ $deposit->user->fname }} {{ $deposit->user->lname }} </td>
                                                 <td> {{ $deposit->voucher }} </td>
-                                                <td> {{ $deposit->name }} </td>
+                                                <td> {{ $deposit->name_bank }} </td>
                                                 <td> {{ $deposit->ban }} </td>
                                                 <td> {{ $deposit->ci }} </td>
                                                 <td> {{ number_format($deposit->amount/$change->peso_bs, 2, ',', '.') }} </td>

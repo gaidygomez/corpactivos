@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use App\Http\Controllers\Controller;
 use App\Mail\ConfirmationTransaction;
 use App\Model\{Deposit, BankEntity, RateOfChange};
@@ -33,5 +34,25 @@ class ConfirmationController extends Controller
             ->send(new ConfirmationTransaction($deposit, $amount));
 
         return back()->with('success', 'Email de Confirmación Enviado.');
+    }
+
+    public function dailyBalanceCo()
+    {
+        $deposits = DB::table('deposits')
+            ->join('colombian_banks', 'colombian_banks.acronym', '=', 'deposits.bank')
+            ->whereDate('deposits.created_at', date('Y-m-d'))
+            ->select('deposits.*', 'colombian_banks.name as name_bank', 'colombian_banks.acronym')
+            ->paginate();
+
+        $banks = DB::table('colombian_banks')
+            ->whereDate('updated_at', date('Y-m-d'))
+            ->get();
+
+        return view('admin.balanceCo', compact('deposits', 'banks'));
+    }
+
+    public function dailyBalanceVe()
+    {
+        # code...
     }
 }

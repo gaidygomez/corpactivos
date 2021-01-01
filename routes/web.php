@@ -65,4 +65,5 @@ Route::namespace('Admin')->prefix('admin')->middleware('admin')->group(function 
 	Route::get('banks/venezuela', 'BalanceController@banksVenezuela')->name('banks.vzla');
 	Route::post('banks/venezuela', 'BalanceController@addBanksVzla')->name('banks.vzla.post');
 	Route::get('banks/venezuela/{id}', 'BalanceController@deleteBanksVzla')->name('banks.vzla.delete');
+	Route::get('balance/colombia', 'ConfirmationController@dailyBalanceCo')->name('balance.colombia');
 });

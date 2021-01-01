@@ -40,6 +40,7 @@
                         <li><a href="{{ route('balance.admin') }}">Balance Bancos de Venezuela</a></li>
                         <li><a href="{{ route('banks.vzla') }}">Bancos de Venezuela</a></li>
                         <li><a href="{{ route('banks.admin') }}">Bancos de Colombia</a></li>
+                        <li><a href="{{ route('balance.colombia') }}">Balance Bancos de Colombia</a></li>
                     </ul>
                 </li>
             </ul>
